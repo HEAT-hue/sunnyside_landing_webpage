@@ -75,6 +75,7 @@ header nav .nav-menu {
   align-items: center;
   padding: 30px;
   transition: 250ms;
+  z-index: 10;
 }
 header nav .nav-menu li {
   padding-block: 10px;
@@ -109,6 +110,7 @@ header .hero-container .icon {
   font-size: 4.5rem;
   margin: auto;
   opacity: 0.8;
+  z-index: -1;
 }
 @media only screen and (min-width: 760px) {
   header {

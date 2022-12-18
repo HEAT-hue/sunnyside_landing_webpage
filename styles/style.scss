@@ -87,6 +87,7 @@ header {
       @include flexCenter(column, space-between, center);
       padding: 30px;
       transition: 250ms;
+      z-index: 10;
 
       li {
         padding-block: 10px;
@@ -126,6 +127,7 @@ header {
       font-size: 4.5rem;
       margin: auto;
       opacity: 0.8;
+      z-index: -1;
     }
   }
 
