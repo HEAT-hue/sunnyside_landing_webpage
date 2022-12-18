@@ -194,17 +194,20 @@ section.container {
   .text-lg {
     width: 100%;
     height: 40vh;
-    padding: 30px;
+    @include flexCenter(column, center, center);
+    gap: 1.2rem;
+    padding: 0 30px;
     text-align: center;
 
     h2 {
       font-size: 2.5rem;
-      margin-top: 20px;
+      max-width: 15ch;
+      // margin-top: 20px;
     }
 
     p {
       color: grey;
-      margin: 20px 0;
+      // margin: 20px 0;
       line-height: 1.8;
     }
 
@@ -268,7 +271,6 @@ section.container {
   }
 
   @media only screen and (min-width: $mdBk) {
-    // max-width: 100%;
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-auto-rows: 400px;
@@ -298,13 +300,13 @@ section.container {
       height: 100%;
 
       h2 {
-        max-width: 15ch;
-        margin: 20px auto;
+        max-width: 20ch;
+        margin: 0 auto;
       }
 
       p {
         max-width: 51ch;
-        margin: 20px auto;
+        margin: 0 auto;
       }
     }
 
