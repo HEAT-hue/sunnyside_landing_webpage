@@ -1,5 +1,18 @@
-//Variables
+// Variables
 $mdBk: 760px;
+
+// Heading variables
+$h1_sm: 2.8rem;
+$h2_sm: 2rem;
+$h3_sm: $h2_sm * 0.9;
+$h2_md: 1.7rem;
+$h3_md: $h2_md * 0.9;
+
+// Paragraph variables
+$p_lg_sm: 1rem;
+$p_bg_sm: $p_lg_sm * 0.95;
+$p_lg_md: 0.9rem;
+$p_bg_md: $p_lg_md * 0.95;
 
 // Mixin
 @mixin flexCenter($direction, $Jc, $Al) {
@@ -39,7 +52,7 @@ header {
   nav {
     height: 80px;
     width: 100%;
-    padding-block: 10px;
+    padding-block: 30px;
     padding-inline: 5vw;
     @include flexCenter(row, space-between, center);
     color: #ffffff;
@@ -83,23 +96,26 @@ header {
       top: -100vw;
       left: 5vw;
       right: 5vw;
-      height: 30vh;
+      height: auto;
       @include flexCenter(column, space-between, center);
-      padding: 30px;
+      padding: 40px;
       transition: 250ms;
       z-index: 10;
+      gap: 2rem;
 
       li {
-        padding-block: 10px;
         text-align: center;
         color: grey;
         font-weight: bold;
 
         .nav-btn {
+          display: flex;
+          align-items: center;
           background-color: #fbd602;
           color: #100f0f;
           font-weight: bold;
-          padding: 10px 25px;
+          height: 40px;
+          padding: 0px 25px;
           border: 1px solid #fbd602;
           border-radius: 50px;
         }
@@ -119,7 +135,7 @@ header {
       text-transform: uppercase;
       width: 9ch;
       margin: 25px auto;
-      font-size: 2.8rem;
+      font-size: $h1_sm;
     }
 
     .icon {
@@ -193,19 +209,23 @@ section.container {
 
   .text-lg {
     width: 100%;
-    height: 40vh;
-    padding: 30px;
+    height: 400px;
+    padding: 70px 20px;
     text-align: center;
+    @include flexCenter(column, space-between, center);
+    gap: 0.5rem;
 
     h2 {
-      font-size: 2.5rem;
-      margin-top: 20px;
+      width: 15ch;
+      font-size: $h2_sm;
     }
 
     p {
+      min-width: 35ch;
+      max-width: 40ch;
       color: grey;
-      margin: 20px 0;
-      line-height: 1.8;
+      font-size: $p_lg_sm;
+      line-height: 1.3;
     }
 
     a.text-link {
@@ -236,8 +256,8 @@ section.container {
 
   .text-img {
     width: 100%;
-    height: 60vh;
-    padding: 30px;
+    height: 500px;
+    padding: 60px 30px;
     @include flexCenter(column, flex-end, center);
     text-align: center;
     color: #23584b;
@@ -247,13 +267,15 @@ section.container {
     }
 
     h3 {
-      font-size: 2.5rem;
-      margin-bottom: 25px;
+      font-size: $h3_sm;
+      margin-bottom: 15px;
     }
 
     p {
-      font-size: 1.1rem;
-      line-height: 1.8;
+      min-width: 35ch;
+      max-width: 40ch;
+      font-size: $p_bg_sm;
+      line-height: 1.5;
     }
   }
 
@@ -267,6 +289,31 @@ section.container {
       center/cover;
   }
 
+  @media screen and (min-width: 415px) {
+    .text-lg {
+      h2 {
+        font-size: $h2_sm * 1.2;
+      }
+
+      p {
+        font-size: $p_lg_sm * 1.1;
+      }
+    }
+
+    .text-img {
+      h3 {
+        font-size: $h3_sm * 1.2;
+        margin-bottom: 15px;
+      }
+
+      p {
+        width: 40ch;
+        font-size: $p_bg_sm * 1.1;
+        line-height: 1.5;
+      }
+    }
+  }
+
   @media only screen and (min-width: $mdBk) {
     // max-width: 100%;
     display: grid;
@@ -278,7 +325,6 @@ section.container {
       "e f";
 
     .img-bg {
-      // width: 100%;
       height: 100%;
     }
 
@@ -295,16 +341,28 @@ section.container {
     }
 
     .text-lg {
+      align-items: flex-start;
       height: 100%;
+      padding: 98px 15%;
+
+      @media screen and (min-width: 890px) {
+        padding-left: 20%;
+      }
 
       h2 {
         max-width: 15ch;
-        margin: 20px auto;
+        font-size: $h2_md;
+        text-align: left;
       }
 
       p {
+        font-size: $p_lg_md;
         max-width: 51ch;
-        margin: 20px auto;
+        text-align: left;
+      }
+
+      a.text-link {
+        font-size: 0.8rem;
       }
     }
 
@@ -318,11 +376,12 @@ section.container {
       }
 
       h3 {
-        font-size: 2.3rem;
+        font-size: $h3_md;
         margin-bottom: 10px;
       }
 
       p {
+        font-size: $p_bg_md;
         line-height: 1.2;
       }
     }
@@ -391,7 +450,41 @@ section.testimonials {
 
     .container {
       display: flex;
+      justify-content: space-around;
       gap: 2rem;
+    }
+
+    div.testimonial {
+      margin-top: 60px;
+      text-align: center;
+
+      img.testimonial-img {
+        display: inline-block;
+        border-radius: 50%;
+        width: 70px;
+        height: 70px;
+        margin: 0 auto;
+      }
+
+      p.testimonial-content {
+        font-size: $p_lg_md;
+        font-weight: bold;
+        color: rgb(110, 110, 110);
+        margin-top: 20px;
+        line-height: 1.5;
+      }
+
+      p.testimonial-author {
+        font-weight: bold;
+        font-size: 1rem;
+        margin-top: 20px;
+      }
+
+      p.testimonial-author-stat {
+        font-size: $p_bg_md;
+        color: grey;
+        margin-top: 10px;
+      }
     }
   }
 }
